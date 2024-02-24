@@ -132,6 +132,21 @@ Project Basic Setup
         }
     }
 
+*) Run command, "npx husky init"
+
+*) It will create one file on the path "\.husky\pre-commit". Then update the file with below commands,
+        #!/bin/sh
+        . "$(dirname "$0")/_/husky.sh"
+        npx lint-staged
+
+*) Create new ".lintstagedrc.json" and update with below json options,
+    {
+        "*.ts": ["prettier --write", "eslint"]
+    }
+
+*) prettier --write -- It will run prettier formater, its an optional one.
+
+
 
 
 Packages:
@@ -154,6 +169,9 @@ https://www.humankode.com/javascript/set-up-prettier-and-vs-code-to-format-your-
 
 *) Below link, is used to fix the ESlint rule prettier error.
 https://stackoverflow.com/questions/53516594/why-do-i-keep-getting-eslint-delete-cr-prettier-prettier 
+
+*) Below link is used to prevent git commit if ESLint validation failed.
+https://duncanlew.medium.com/getting-started-with-husky-and-lint-staged-for-pre-commit-hooks-c2764d8c9ae
 
 Issues:
 -------
