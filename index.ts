@@ -5,7 +5,6 @@ import express, { Request, Response } from "express";
 class ExpressAPI {
 	private app: express.Application;
 	private port: number;
-	private eslint: number;
 
 	constructor(port: number) {
 		this.app = express();
