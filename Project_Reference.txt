@@ -146,6 +146,7 @@ Project Basic Setup
 
 *) prettier --write -- It will run prettier formater, its an optional one.
 
+*) Above git commit prevent is not working and its disabled on file  "\.husky\pre-commit". To enable it, uncomment the line on th file "#npx lint-staged"
 
 
 
