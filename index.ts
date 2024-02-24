@@ -5,6 +5,7 @@ import express, { Request, Response } from "express";
 class ExpressAPI {
 	private app: express.Application;
 	private port: number;
+	private testt;
 
 	constructor(port: number) {
 		this.app = express();
