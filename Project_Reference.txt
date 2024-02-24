@@ -1,0 +1,23 @@
+
+Project Basic Setup
+-------------------
+*) Install typescript[npm i -g typescript]
+*) Run command "tsc --init" and fill the details
+
+
+
+
+Packages:
+---------
+npm i -g typescript
+npm i express @types/express
+npm i cors          --  To handle CORS issue(Which means if front end and backend end URL is have different domain name or port number)
+npm i express-session
+
+Issues:
+-------
+"tsc" command is not working
+-----------------------------
+*) Add "%AppData%\npm" this on system environment variable "Path"
+*) And also check your working on "CMD" or "powershell"
+*) Finally try command "tsc -v"
