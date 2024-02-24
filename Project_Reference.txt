@@ -57,6 +57,9 @@ Project Basic Setup
     -   Would you like to install them now with npm?:
     -   Select "Yes" if you want ESLint to install the necessary packages based on your configuration.
 
+*) Update "package.json" file with below commands on "scripts", it will check the lint errors and automatically fixs that errors
+    -   "lint": "eslint . --ext .ts",
+    -   "lint:fix": "eslint . --ext .ts --fix",
 
 *) Update VS Code Editor setting to format the code while saving. For this follow the below steps,
     -   Go to, File -> Preferences -> Settings
@@ -65,7 +68,7 @@ Project Basic Setup
 
 *) Then configure the "Prettier Formatter" to VS Code Editor. Follow below steps,
     -   Go to the any one of the .ts or .js file.
-    -   Then press, Alt + Shift + F
+    -   Then press, "Alt + Shift + F"
     -   Click "Configure" and choose "Prettier Formatter"
 
 *) Then create prettier formatter config file, run the below commnad,
@@ -74,11 +77,62 @@ Project Basic Setup
 
 *) Update the required setting on that file, options are mentioned below,
     {
-    "tabWidth": 4,
-    "useTabs": false,
-    "semi": true,
-    "singleQuote": true
+        "tabWidth": 4,
+        "useTabs": false,
+        "semi": true,
+        "singleQuote": true
     }
+
+*) For apply prettier format to all types of files.[Ex: .js, .json] Follow below steps,
+    -   In VS Code editor press, "Ctrl + Shift + P"
+    -   On search bar, search the text "Workspace Settings (JSON)"
+    -   Then select the option, "Preferences: Open Workspace Settings (JSON)"
+    -   It will automatically create one setting files on folder ".vscode"
+    -   Paste the below json options on that file,
+    {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+
+*) Configure the "Prettier" on to the ESLint, reference configuration is in below,
+    {
+        "extends": [
+            "eslint:recommended",
+            "plugin:@typescript-eslint/recommended",
+            "prettier"
+        ],
+        "parser": "@typescript-eslint/parser",
+        "plugins": ["@typescript-eslint", "prettier"],
+        "rules": {
+            "prettier/prettier": [
+                "error",
+                {
+                    "endOfLine": "auto"
+                }
+            ]
+        }
+    }
+
+*) Check file ".eslintrc.json", that the "prettier" is configured like above. It will check the prettier format error too.
+
+*) Next, setup git commit is not success when ESlint validation is failed, for this install two packages,
+    -   npm i lint-staged husky --save-dev
+
+*) Then update the "package.json" file with below commands,
+    -   Note: Don't forgot to change the file extension based on project,
+    "lint-staged": {
+        "*.ts": [
+            "eslint",
+            "git add"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    }
+
+
 
 Packages:
 ---------
@@ -89,6 +143,17 @@ npm i express @types/express
 npm i cors          --  To handle CORS issue(Which means if front end and backend end URL is have different domain name or port number)
 npm i express-session   --  It is used to manage session and create/read cookies from request(req) varibale.
 npm i eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin prettier eslint-config-prettier eslint-plugin-prettier --save-dev
+npm i lint-staged husky --save-dev
+
+
+Reference Links:
+----------------
+*) Below link is used to, "Apply Prettier Formater to all types of file.[Ex: .json, .js]"
+Note: Just take the json configuration, don't follow the steps, because it will apply for all project.
+https://www.humankode.com/javascript/set-up-prettier-and-vs-code-to-format-your-code/#:~:text=Open%20the%20user%20settings%20JSON,Open%20User%20Settings%20(JSON)%20.&text=Then%20add%20the%20following%20lines,json%20file%20and%20save%20it.
+
+*) Below link, is used to fix the ESlint rule prettier error.
+https://stackoverflow.com/questions/53516594/why-do-i-keep-getting-eslint-delete-cr-prettier-prettier 
 
 Issues:
 -------
