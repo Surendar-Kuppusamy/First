@@ -6,8 +6,79 @@ Project Basic Setup
 *) Run command "npm init" to setup project description
 *) Install "ts-node" -- ts-node is a TypeScript execution engine and REPL for Node.js.
 *) To run the server "nodemon index.ts"
+*) Install Eslint and prettier.
+*) Eslint -- It is used to validate code standard and find some common errors.
+*) Prettier -- It is used to align the code properly
+*) Above package installed details,
+    -   eslint: ESLint core package.
+    -   @typescript-eslint/parser: Parser for TypeScript files.
+    -   @typescript-eslint/eslint-plugin: ESLint rules for TypeScript.
+    -   prettier: Prettier package.
+    -   eslint-config-prettier: Disables ESLint rules that conflict with Prettier.
+    -   eslint-plugin-prettier: Runs Prettier as an ESLint rule.
+*) Then Run command "npx eslint --init", it is used to create ESlint config.
+*) It ask so many question and answer related to questions. Answer is mentioned below,
+    -   How would you like to use ESLint? · style
+    -   √ What type of modules does your project use? · esm
+    -   √ Which framework does your project use? · none
+    -   √ Does your project use TypeScript? · No / Yes
+    -   √ Where does your code run? · browser
+    -   ? How would you like to define a style for your project? ...
+    -   > Use a popular style guide
+    -   √ How would you like to define a style for your project? · prompt
+    -   √ What format do you want your config file to be in? · JSON
+    -   √ What style of indentation do you use? · tab
+    -   √ What quotes do you use for strings? · double
+    -   √ What line endings do you use? · windows
+    -   √ Do you require semicolons? · No / Yes
+    The config that you've selected requires the following dependencies:
+
+    -   @typescript-eslint/eslint-plugin@latest @typescript-eslint/parser@latest
+    -   √ Would you like to install them now? · No / Yes
+    -   √ Which package manager do you want to use? · npm
+
+*) Reference for above question,
+    -   How would you like to use ESLint?:
+    -   Select "To check syntax, find problems, and enforce code style".
+    -   What type of modules does your project use?:
+    -   Choose the appropriate module system for your project (e.g., CommonJS, ES modules).
+    -   Which framework does your project use?:
+    -   If you're using a framework like Express.js, you can select it here.
+    -   Does your project use TypeScript?:
+    -   Select "Yes" if your project uses TypeScript.
+    -   Where does your code run?:
+    -   Specify where your code runs (e.g., Browser, Node).
+    -   How would you like to define a style for your project?:
+    -   Choose your preferred style guide or select "Answer questions about your style".
+    -   Which style guide do you want to follow?:
+    -   You can choose from popular style guides like Airbnb, Standard, or Google, or select "Use a popular style guide".
+    -   What format do you want your config file to be in?:
+    -   Choose the format for your ESLint configuration file (e.g., JavaScript, YAML, JSON).
+    -   Would you like to install them now with npm?:
+    -   Select "Yes" if you want ESLint to install the necessary packages based on your configuration.
 
 
+*) Update VS Code Editor setting to format the code while saving. For this follow the below steps,
+    -   Go to, File -> Preferences -> Settings
+    -   Search with the text "format on save"
+    -   Check the option, "Editor: Format On Save"
+
+*) Then configure the "Prettier Formatter" to VS Code Editor. Follow below steps,
+    -   Go to the any one of the .ts or .js file.
+    -   Then press, Alt + Shift + F
+    -   Click "Configure" and choose "Prettier Formatter"
+
+*) Then create prettier formatter config file, run the below commnad,
+    -   Run the command, "touch .prettierrc"
+    -   Above command create a new file ".prettierrc"
+
+*) Update the required setting on that file, options are mentioned below,
+    {
+    "tabWidth": 4,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": true
+    }
 
 Packages:
 ---------
@@ -17,6 +88,7 @@ npm install -g ts-node
 npm i express @types/express
 npm i cors          --  To handle CORS issue(Which means if front end and backend end URL is have different domain name or port number)
 npm i express-session   --  It is used to manage session and create/read cookies from request(req) varibale.
+npm i eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin prettier eslint-config-prettier eslint-plugin-prettier --save-dev
 
 Issues:
 -------
