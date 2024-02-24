@@ -162,3 +162,16 @@ Issues:
 *) Add "%AppData%\npm" this on system environment variable "Path"
 *) And also check your working on "CMD" or "powershell"
 *) Finally try command "tsc -v"
+
+
+Git Commands:
+-------------
+*) To clone the repository
+    -   git clone "https://github.com/Surendar-Kuppusamy/NodeJS-OOPS.git"
+
+*) To push code,
+    -   git pull        --  Sync changes from github server to local machine.
+    -   git add .       --  It will add all files to git.
+    -   git commit -m "Commit Message"  --  Add Commit message.
+    -   git push        --  Sync changes from local machine to github server.
+    
