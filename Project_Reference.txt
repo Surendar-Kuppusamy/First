@@ -2,17 +2,21 @@
 Project Basic Setup
 -------------------
 *) Install typescript[npm i -g typescript]
-*) Run command "tsc --init" and fill the details
-
+*) Run command "tsc --init" and fill the details    --  It will create tsconfig file
+*) Run command "npm init" to setup project description
+*) Install "ts-node" -- ts-node is a TypeScript execution engine and REPL for Node.js.
+*) To run the server "nodemon index.ts"
 
 
 
 Packages:
 ---------
+npm i -g nodemon
 npm i -g typescript
+npm install -g ts-node
 npm i express @types/express
 npm i cors          --  To handle CORS issue(Which means if front end and backend end URL is have different domain name or port number)
-npm i express-session
+npm i express-session   --  It is used to manage session and create/read cookies from request(req) varibale.
 
 Issues:
 -------
